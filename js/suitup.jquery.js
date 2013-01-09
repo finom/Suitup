@@ -1,7 +1,8 @@
 "use strict";
 jQuery._createElement = function( tagName, props ) {
 	return $( $.extend( document.createElement( tagName ), props ) );
-},
+};
+
 jQuery.suitUp = {
 	controls: [ 'italic', 'bold', '|', 'formatblock#<h1>', 'formatblock#<h2>', 'formatblock#<h3>', 'formatblock#<p>' , '|', 'fontname', 'link' ],
 	

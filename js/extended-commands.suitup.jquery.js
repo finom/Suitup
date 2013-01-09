@@ -47,8 +47,8 @@ jQuery.extend( jQuery.suitUp.custom, {
 	}
 });
 
-//* 
-//examples:
+/* 
+//for tests:
 jQuery.suitUp.controls = [ 
 	'createlink',
 	'justifycenter',

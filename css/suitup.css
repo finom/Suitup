@@ -1,0 +1,151 @@
+.suitup {}
+.suitup-textarea{width: 500px ;height: 200px;}
+.suitup-controls {
+	display: block;
+	min-height: 30px;
+	border: 1px solid #d8d9db;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	
+	background: #f2f3f8;
+	background: -moz-linear-gradient(top,  #f2f3f8 0%, #e7eaef 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f2f3f8), color-stop(100%,#e7eaef));
+	background: -webkit-linear-gradient(top,  #f2f3f8 0%,#e7eaef 100%);
+	background: -o-linear-gradient(top,  #f2f3f8 0%,#e7eaef 100%);
+	background: -ms-linear-gradient(top,  #f2f3f8 0%,#e7eaef 100%);
+	background: linear-gradient(to bottom,  #f2f3f8 0%,#e7eaef 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f3f8', endColorstr='#e7eaef',GradientType=0 );
+
+}
+
+.suitup-editor {
+	padding: 10px;
+	box-sizing: border-box;
+	border: 1px solid #e7eaef;
+	border-top: none;
+	overflow: auto;
+	font-family: arial;
+	background-color: white;
+	-webkit-border-bottom-right-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.suitup-editor li { margin-left: 30px; }
+
+.suitup-separator {
+	display: inline-block;
+	vertical-align: middle;
+	width: 1px;
+	height: 30px;
+	background: #d8d9db;
+	margin: 0 3.5px;
+}
+
+.suitup-control {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+a.suitup-control, span.suitup-control {
+	height: 16px;
+	width: 16px;
+	margin: 7px;
+}
+
+a.suitup-control {
+	background: url(suitup-sprite.png) no-repeat;
+}
+
+a.suitup-control.active{ background-color: #e0e0e5; }
+
+select.suitup-control {}
+
+a.suitup-control[data-command="createlink"] {
+	background-position: 0 0;
+}
+a.suitup-control[data-command="justifycenter"] {
+	background-position: 0 -16px;
+}
+a.suitup-control[data-command="justifyfull"] {
+	background-position: 0 -32px;
+}
+a.suitup-control[data-command="justifyright"] {
+	background-position: 0 -48px;
+}
+a.suitup-control[data-command="justifyleft"] {
+	background-position: 0 -64px;
+}
+a.suitup-control[data-command="bold"] {
+	background-position: 0 -96px;
+}
+a.suitup-control[data-command="forecolor"] {
+	background-position: 0 -112px;
+}
+a.suitup-control[data-command="formatblock"][data-value="<h1>"] {
+	background-position: 0 -128px;
+}
+a.suitup-control[data-command="formatblock"][data-value="<h2>"] {
+	background-position: 0 -144px;
+}
+a.suitup-control[data-command="formatblock"][data-value="<h3>"] {
+	background-position: 0 -160px;
+}
+a.suitup-control[data-command="formatblock"][data-value="<h4>"] {
+	background-position: 0 -176px;
+}
+a.suitup-control[data-command="formatblock"][data-value="<h5>"] {
+	background-position: 0 -192px;
+}
+a.suitup-control[data-command="formatblock"][data-value="<h6>"] {
+	background-position: 0 -208px;
+}
+a.suitup-control[data-command="italic"] {
+	background-position: 0 -224px;
+}
+a.suitup-control[data-command="insertorderedlist"] {
+	background-position: 0 -240px;
+}
+a.suitup-control[data-command="insertunorderedlist"] {
+	background-position: 0 -256px;
+}
+a.suitup-control[data-command="strikethrough"] {
+	background-position: 0 -272px;
+}
+a.suitup-control[data-command="subscript"] {
+	background-position: 0 -288px;
+}
+a.suitup-control[data-command="superscript"] {
+	background-position: 0 -304px;
+}
+a.suitup-control[data-command="underline"] {
+	background-position: 0 -320px;
+}
+a.suitup-control[data-command="insertimage"] {
+	background-position: 0 -336px;
+}
+/*
+	doesn't work in ie
+	a.suitup-control[data-command="decreasefontsize"] {
+		background-position: 0 -368px;
+	}
+	a.suitup-control[data-command="increasefontsize"] {
+		background-position: 0 -384px;
+	}
+*/
+a.suitup-control[data-command="formatblock"][data-value="<p>"] {
+	background-position: 0 -400px;
+}
+/* 
+	doesn't work in ie
+	a.suitup-control[data-command="formatBlock"][data-value="<blockquote>"] {
+		background-position: 0 -416px;
+	}
+*/

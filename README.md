@@ -7,4 +7,4 @@ Simple WYSIWYG editor
 
 ![Suit Up!](http://habrastorage.org/storage2/2a8/d22/8dc/2a8d228dcf32a7bf805eac764a21b0ac.png)
 
-Icons author - Yusuke Kamiyamane ([Figue icons](http://p.yusukekamiyamane.com/))
+Icons author - Yusuke Kamiyamane ([Figue icons](http://p.yusukekamiyamane.com/)).

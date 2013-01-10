@@ -190,8 +190,10 @@ jQuery.fn.suitUp = function( controls ) {
 					className: 'suitup-separator'
 				}).appendTo( controlsBlock );
 				
-			} else if( control in commands || splittedControl[ 1 ] ) {
-				commandValue = commandValue || commands[ control ];
+			} else if( control in custom ) {
+				custom[ control ]( that, mainBlock[ 0 ] ).appendTo( controlsBlock );
+			} else {
+				commandValue = commandValue || commands[ control ] || null;
 				typeofCommandValue = typeof commandValue;
 				
 				if( commandValue && typeofCommandValue === 'object' ) {
@@ -251,9 +253,7 @@ jQuery.fn.suitUp = function( controls ) {
 					});
 				}
 				
-			} else if( control in custom ) {
-				custom[ control ]( that, mainBlock[ 0 ] ).appendTo( controlsBlock );
-			}
+			} 
 		}
 			
 		mainBlock.insertBefore( that );

@@ -2,24 +2,10 @@ jQuery.extend( jQuery.suitUp.commands, {
 	createlink: function( callback ){
 		callback( window.prompt( 'This only creates link, to remove link use native "unlink" command or custom "link" command \nURL:', '' ) );
 	},
-	justifycenter: null,
-	justifyfull: null,
-	justifyright: null,
-	justifyleft: null,
-	bold: null,
 	forecolor: 'red',
-	//formatBlock: null, // value is taken from string like 'formatBlock#BLOCKQUOTE' > 'BLOCKQUOTE',
-	italic: null,
-	insertorderedlist: null,
-	insertunorderedlist: null,
-	strikethrough: null,
-	subscript: null,
-	superscript: null,
-	underline: null,
 	insertimage: function( callback ){
 		callback( window.prompt( 'URL:', '' ) );
-	},
-	insertParagraph: null
+	}
 });
 
 jQuery.extend( jQuery.suitUp.custom, {

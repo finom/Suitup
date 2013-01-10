@@ -7,8 +7,6 @@ jQuery.suitUp = {
 	controls: [ 'italic', 'bold', '|', 'formatblock#<h1>', 'formatblock#<h2>', 'formatblock#<h3>', 'formatblock#<p>' , '|', 'fontname', 'link' ],
 	
 	commands: {
-		bold: null,
-		italic: null,
 		createlink: function( callback ){
 			callback( window.prompt( 'URL:', '' ) );
 		},
@@ -141,10 +139,6 @@ jQuery.fn.suitUp = function( controls ) {
 			
 			updateTextarea = function() {
 				that.value = containerBlock.html();
-			},
-			
-			setButtonCommandState = function( elem, command, value ){
-				
 			},
 			
 			highlightActiveControls = function() {

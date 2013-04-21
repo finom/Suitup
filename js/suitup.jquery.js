@@ -1,14 +1,15 @@
 "use strict";
-jQuery._createElement = function( tagName, props ) {
-	return $( $.extend( document.createElement( tagName ), props ) );
+( function( win, doc, $ ) {
+var create = function( tagName, props ) {
+	return $( $.extend( doc.createElement( tagName ), props ) );
 };
 
-jQuery.suitUp = {
+$.suitUp = {
 	controls: [ 'italic', 'bold', '|', 'formatblock#<h1>', 'formatblock#<h2>', 'formatblock#<h3>', 'formatblock#<p>' , '|', 'fontname', 'link' ],
 	
 	commands: {
 		createlink: function( callback ){
-			callback( window.prompt( 'URL:', '' ) );
+			callback( win.prompt( 'URL:', '' ) );
 		},
 		fontname: {
 			Arial: 'arial',
@@ -17,30 +18,33 @@ jQuery.suitUp = {
 	},
 	
 	custom: {
-		link: function() {
-			return jQuery._createElement( 'a', {
+		link: function( textarea, suitUpBlock ) {
+			return create( 'a', {
 				className: 'suitup-control',
 				href: '#'
 			}).attr({
 				'data-command': 'createlink' // adding same style as for createlink command button
 			}).on( 'click', function() {
 				if( !$.suitUp.hasSelectedNodeParent( 'a' ) ) {
-					document.execCommand( 'createlink', false, window.prompt( 'URL:', '' ) );
+					doc.execCommand( 'createlink', false, win.prompt( 'URL:', '' ) );
 				} else {
-					document.execCommand( 'unlink', false, null );
+					doc.execCommand( 'unlink', false, null );
 				}
-			});			
+				
+				textarea.value = $( suitUpBlock ).find( '.suitup-editor' ).html();
+			});
+			
 		}
 	},
 	
 	getSelection: function() {
 		var range;
-		if( window.getSelection ) {
+		if( win.getSelection ) {
 			try {
-				range = window.getSelection().getRangeAt( 0 );
+				range = win.getSelection().getRangeAt( 0 );
 			} catch(e) {}
-		} else if(document.selection) { 
-			range = document.selection.createRange();  
+		} else if(doc.selection) { 
+			range = doc.selection.createRange();  
 		}
 		return range;
 	},
@@ -48,24 +52,24 @@ jQuery.suitUp = {
 	restoreSelection: function( range ) {
 		var s;
 		if ( range ) {
-			if ( window.getSelection ) {
-				s = window.getSelection();
+			if ( win.getSelection ) {
+				s = win.getSelection();
 				if ( s.rangeCount > 0 ) 
 					s.removeAllRanges();
 				s.addRange( range );
-			} else if (document.createRange) {
-				window.getSelection().addRange( range );
-			} else if ( document.selection ) {
+			} else if (doc.createRange) {
+				win.getSelection().addRange( range );
+			} else if ( doc.selection ) {
 				range.select();
 			}
 		}
 	},
 	
 	getSelectedNode: function() {
-		if ( document.selection ) {
-			return document.selection.createRange().parentElement();
+		if ( doc.selection ) {
+			return doc.selection.createRange().parentElement();
 		} else {
-			var selection = window.getSelection();
+			var selection = win.getSelection();
 			if ( selection.rangeCount > 0 ) {
 				return selection.getRangeAt( 0 ).endContainer;
 			}
@@ -87,16 +91,12 @@ jQuery.suitUp = {
 	}
 };
 
-jQuery.fn.suitUp = function( controls ) {
-	var $ = jQuery,
-		suitUp = $.suitUp,
+$.fn.suitUp = function( controls ) {
+	var suitUp = $.suitUp,
 		lastSelectionRange,
 		lastSelectionElement,
 		commands = $.suitUp.commands,
 		custom = $.suitUp.custom,
-		doc = document,
-		
-		create = $._createElement,
 		getSelection = suitUp.getSelection,
 		restoreSelection = suitUp.restoreSelection;
 	
@@ -254,3 +254,4 @@ jQuery.fn.suitUp = function( controls ) {
 		
 	});
 };
+})( window, document, jQuery );

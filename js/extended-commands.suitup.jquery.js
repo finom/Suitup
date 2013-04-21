@@ -9,8 +9,8 @@ jQuery.extend( jQuery.suitUp.commands, {
 });
 
 jQuery.extend( jQuery.suitUp.custom, {
-	link: function() {
-		return jQuery._createElement( 'a', {
+	link: function( textarea, suitUpBlock ) {
+		return jQuery( '<a/>' ).prop({
 			className: 'suitup-control',
 			href: '#'
 		}).attr({
@@ -21,6 +21,8 @@ jQuery.extend( jQuery.suitUp.custom, {
 			} else {
 				document.execCommand( 'unlink', false, null );
 			}
+			
+			textarea.value = $( suitUpBlock ).find( '.suitup-editor' ).html();
 		});			
 	},
 	

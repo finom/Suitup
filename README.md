@@ -1,4 +1,4 @@
-Suitup
+Suitup [![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
 ======
 
 Simple WYSIWYG editor
